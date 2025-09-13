@@ -4,385 +4,1248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M-BURRO | Equipe Competitiva Mobile</title>
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <title>Mata-Burro - Equipe de E-Sports Mobile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #0a0a0a;
-            color: white;
-            overflow-x: hidden;
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-secondary: #FFD700;
+            --gold-light: #F9E076;
+            --gold-dark: #B8860B;
+            --dark-bg: #1A1A1A;
+            --dark-section: #222222;
+            --text-light: #FFFFFF;
+            --text-gold: #D4AF37;
+            --brown-dark: #5C3D0C;
+            --mobile-blue: #1E90FF;
+            --mobile-purple: #9370DB;
         }
         
-        .hero-gradient {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo-text,
+        .cta-button {
+            font-family: 'Oxanium', cursive;
+            font-weight: 700;
+        }
+        
+        /* Header e Navegação */
+        header {
+            background: linear-gradient(to bottom, rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.85));
+            padding: 15px 5%;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--gold-primary);
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            margin-right: 10px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--gold-primary), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .logo-text::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, var(--gold-primary), var(--gold-light));
+            border-radius: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 12px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            padding: 5px 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold-primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .social-icons {
+            display: flex;
+        }
+        
+        .social-icons a {
+            color: var(--text-light);
+            margin-left: 15px;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-icons a:hover {
+            color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Banner Principal */
+        .hero-banner {
+            height: 100vh;
+            background: linear-gradient(rgba(92, 61, 12, 0.7), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 30%, var(--dark-bg) 90%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+        
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, var(--gold-primary), var(--gold-light), var(--gold-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.6);
+            }
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--gold-primary), var(--gold-dark));
+            color: var(--dark-bg);
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+        }
+        
+        .cta-button:active {
+            transform: translateY(1px);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s;
+            z-index: -1;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        /* Seções */
+        .section-title {
+            text-align: center;
+            margin: 80px 0 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            background: linear-gradient(to right, var(--gold-primary), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .section-title h2::before,
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--gold-primary));
+        }
+        
+        .section-title h2::before {
+            left: -60px;
+        }
+        
+        .section-title h2::after {
+            right: -60px;
+            background: linear-gradient(to left, transparent, var(--gold-primary));
+        }
+        
+        section {
+            padding: 80px 5%;
+        }
+        
+        .dark-section {
+            background: linear-gradient(to bottom, var(--dark-section), #2a2a2a);
+            position: relative;
+        }
+        
+        .dark-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+        }
+        
+        /* História */
+        .history-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .history-text {
+            background: linear-gradient(to bottom, rgba(34, 34, 34, 0.9), rgba(26, 26, 26, 0.9));
+            padding: 40px;
+            border-radius: 15px;
+            border-left: 5px solid var(--gold-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .history-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .history-text p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .highlight {
+            color: var(--gold-primary);
+            font-weight: 600;
+        }
+        
+        .mobile-games {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .game-card {
+            background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+            width: 200px;
+            padding: 25px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+            border-color: var(--gold-primary);
+        }
+        
+        .game-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--gold-primary);
+        }
+        
+        .game-card h3 {
+            color: var(--text-light);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .game-card p {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Seção de Camisas */
+        .merch-section {
+            background: linear-gradient(to bottom, var(--dark-section), #2a2a2a);
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .jersey-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-top: 40px;
+        }
+        
+        .jersey-card {
+            background: linear-gradient(to bottom, rgba(34, 34, 34, 0.9), rgba(26, 26, 26, 0.9));
+            border-radius: 15px;
+            padding: 30px;
+            width: 320px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .jersey-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+        }
+        
+        .jersey-display {
+            position: relative;
+            height: 350px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+        
+        .jersey {
+            width: 220px;
+            height: 280px;
+            background-color: #000;
+            border: 4px solid var(--gold-primary);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s;
+        }
+        
+        .jersey-front, .jersey-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .jersey-back {
+            transform: rotateY(180deg);
+        }
+        
+        .jersey-logo {
+            font-size: 80px;
+            color: var(--gold-primary);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+        
+        .jersey-text {
+            font-family: 'Oxanium', cursive;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+        
+        .jersey-details {
+            margin: 20px 0;
+        }
+        
+        .jersey-details h3 {
+            color: var(--gold-primary);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .jersey-details p {
+            color: #ccc;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .jersey-price {
+            font-size: 24px;
+            color: var(--gold-light);
+            font-weight: 700;
+            margin: 15px 0;
+        }
+        
+        .buy-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--gold-primary), var(--gold-dark));
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .buy-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+            color: #000;
+        }
+        
+        .flip-button {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold-primary);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .flip-button:hover {
+            background: rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Notícias */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background: linear-gradient(to bottom, rgba(34, 34, 34, 0.9), rgba(26, 26, 26, 0.9));
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border-bottom: 3px solid var(--gold-primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .news-card:hover .news-image img {
+            transform: scale(1.1);
+        }
+        
+        .news-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(26, 26, 26, 0.9), transparent);
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-content h3 {
+            margin-bottom: 15px;
+            color: var(--gold-secondary);
+            font-size: 1.4rem;
+        }
+        
+        .news-content p {
+            margin-bottom: 20px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+        
+        .news-date {
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .read-more {
+            color: var(--gold-primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .read-more:hover {
+            color: var(--gold-light);
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Jogadores */
+        .players-slider {
+            display: flex;
+            overflow-x: auto;
+            padding: 30px 10px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold-primary) var(--dark-section);
+            scroll-behavior: smooth;
+        }
+        
+        .players-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .players-slider::-webkit-scrollbar-thumb {
+            background: linear-gradient(to right, var(--gold-primary), var(--gold-dark));
+            border-radius: 4px;
+        }
+        
+        .player-card {
+            flex: 0 0 auto;
+            width: 280px;
+            margin-right: 25px;
+            background: linear-gradient(to bottom, #2a2a2a, var(--dark-section));
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            border-left: 4px solid var(--gold-primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
         }
         
         .player-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
         }
         
-        .glow-text {
-            text-shadow: 0 0 10px rgba(0, 191, 255, 0.7);
+        .player-image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
         }
         
-        .nav-link:hover {
-            color: #00bfff;
+        .player-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .player-card:hover .player-image img {
+            transform: scale(1.1);
+        }
+        
+        .player-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, var(--dark-section), transparent);
+        }
+        
+        .player-info {
+            padding: 20px;
+        }
+        
+        .player-info h3 {
+            color: var(--gold-primary);
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+        
+        .player-info p {
+            color: #ccc;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .player-role {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold-light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to top, #151515, var(--dark-bg));
+            padding: 60px 5% 30px;
+            position: relative;
+            border-top: 2px solid var(--gold-primary);
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gold-primary);
+        }
+        
+        .footer-column p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+        
+        .footer-links a i {
+            margin-right: 8px;
+            font-size: 0.8rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background: var(--gold-primary);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2::before,
+            .section-title h2::after {
+                width: 30px;
+            }
+            
+            .section-title h2::before {
+                left: -40px;
+            }
+            
+            .section-title h2::after {
+                right: -40px;
+            }
+            
+            .jersey-container {
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2::before,
+            .section-title h2::after {
+                display: none;
+            }
+            
+            .history-text {
+                padding: 25px;
+            }
+            
+            .jersey {
+                width: 180px;
+                height: 230px;
+            }
+            
+            .jersey-logo {
+                font-size: 60px;
+            }
+            
+            .jersey-text {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
 
-<body class="antialiased">
-    <!-- Vanta.js Background -->
-    <div id="vanta-bg" class="fixed top-0 left-0 w-full h-full z-0"></div>
+<body>
+    <!-- Header e Navegação -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-gamepad"></i></div>
+                <div class="logo-text">Mata-Burro</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#history">História</a></li>
+                <li><a href="#players">Jogadores</a></li>
+                <li><a href="#jerseys">Camisas</a></li>
+                <li><a href="#news">Notícias</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Navigation -->
-    <nav class="relative z-50 bg-black bg-opacity-80 backdrop-filter backdrop-blur-lg border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <span class="text-2xl font-bold text-white glow-text">M-<span class="text-blue-400">BURRO</span></span>
-                    </div>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#" class="nav-link text-white hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300">INÍCIO</a>
-                        <a href="#players" class="nav-link text-gray-300 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300">JOGADORES</a>
-                        <a href="#about" class="nav-link text-gray-300 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300">SOBRE</a>
-                        <a href="#achievements" class="nav-link text-gray-300 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300">CONQUISTAS</a>
-                        <a href="#contact" class="nav-link text-gray-300 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300">CONTATO</a>
-                    </div>
-                </div>
-                <div class="md:hidden">
-                    <button class="text-gray-300 hover:text-white focus:outline-none">
-                        <i data-feather="menu"></i>
-                    </button>
-                </div>
+    <!-- Banner Principal -->
+    <section id="home" class="hero-banner">
+        <div class="hero-content">
+            <h1>MATA-BURRO E-SPORTS</h1>
+            <p>Dominando o cenário competitivo mobile com habilidade, estratégia e determinação. Nossa equipe veio para revolucionar os e-sports em dispositivos móveis.</p>
+            <a href="#history" class="cta-button">Conheça Nossa História</a>
+        </div>
+    </section>
+
+    <!-- História -->
+    <section id="history" class="dark-section">
+        <div class="section-title">
+            <h2>Nossa História</h2>
+        </div>
+        <div class="history-content">
+            <div class="history-text">
+                <p>O <span class="highlight">Mata-Burro E-Sports</span> surgiu em 2020 como uma equipe de amigos apaixonados por jogos mobile. O que começou com partidas casuais em Cyber Cafés rapidamente se transformou em uma organização séria e competitiva.</p>
+                <p>Com a pandemia, o cenário mobile explodiu e nossa equipe estava no lugar certo, na hora certa. Nossa primeira grande conquista veio no <span class="highlight">Campeonato Brasileiro de Free Fire</span>, onde surpreendemos a todos ao derrotar equipes consolidadas com táticas inovadoras.</p>
+                <p>Em 2022, nos tornamos a primeira equipe brasileira a vencer o <span class="highlight">Mobile Legends World Championship</span>, conquistando o prêmio de US$ 500.000 e estabelecendo nossa supremacia no cenário internacional.</p>
+                <p>Hoje, o Mata-Burro é sinônimo de excelência em e-sports mobile, com seis títulos internacionais e mais de 20 campeonatos nacionais. Nossa missão é consolidar o Brasil como potência máxima nos e-sports mobile e revelar novos talentos.</p>
             </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-gradient relative z-10 pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center" data-aos="fade-up">
-                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
-                    DOMINANDO O <span class="text-blue-400">CENÁRIO COMPETITIVO</span>
-                </h1>
-                <p class="max-w-3xl mx-auto text-xl text-gray-300 mb-12">
-                    A equipe CLHS Roalle está revolucionando o cenário mobile com estratégias inovadoras e jogadores excepcionais.
-                </p>
-                <div class="flex justify-center space-x-4">
-                    <a href="#players" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
-                        CONHEÇA NOSSA EQUIPE
-                    </a>
-                    <a href="#achievements" class="bg-transparent border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
-                        NOSSAS CONQUISTAS
-                    </a>
-                </div>
+        <div class="section-title">
+            <h2>Jogos que Dominamos</h2>
+        </div>
+        <div class="mobile-games">
+            <div class="game-card">
+                <div class="game-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Free Fire</h3>
+                <p>Campeões mundiais 2022</p>
+            </div>
+            <div class="game-card">
+                <div class="game-icon"><i class="fas fa-gamepad"></i></div>
+                <h3>Mobile Legends</h3>
+                <p>3x Campeões nacionais</p>
+            </div>
+            <div class="game-card">
+                <div class="game-icon"><i class="fas fa-crosshairs"></i></div>
+                <h3>Call of Duty Mobile</h3>
+                <p>Top 3 mundial</p>
+            </div>
+            <div class="game-card">
+                <div class="game-icon"><i class="fab fa-android"></i></div>
+                <h3>PUBG Mobile</h3>
+                <p>Melhor estratégia 2023</p>
+            </div>
+            <div class="game-card">
+                <div class="game-icon"><i class="fas fa-chess"></i></div>
+                <h3>Clash Royale</h3>
+                <p>Dupla campeã</p>
             </div>
         </div>
     </section>
 
-    <!-- Players Section -->
-    <section id="players" class="relative z-10 py-20 bg-black bg-opacity-90">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">NOSSOS <span class="text-blue-400">JOGADORES</span></h2>
-                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <!-- Player 1 -->
-                <div class="player-card bg-gray-900 rounded-xl overflow-hidden transition duration-500 ease-in-out" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative">
-                        <img src="http://static.photos/gaming/640x360/1" alt="Saulo" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
-                        <div class="absolute bottom-0 left-0 p-6">
-                            <h3 class="text-2xl font-bold text-white">SAULO</h3>
-                            <p class="text-blue-400">CAPITÃO / DPS</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-300 mb-4">Líder estratégico com reflexos excepcionais e capacidade de tomada de decisão em alta pressão.</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-blue-400 hover:text-blue-300"><i data-feather="instagram"></i></a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300"><i data-feather="twitter"></i></a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300"><i data-feather="twitch"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Player 2 -->
-                <div class="player-card bg-gray-900 rounded-xl overflow-hidden transition duration-500 ease-in-out" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative">
-                        <img src="http://static.photos/gaming/640x360/2" alt="Gustavo" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
-                        <div class="absolute bottom-0 left-0 p-6">
-                            <h3 class="text-2xl font-bold text-white">GUSTAVO</h3>
-                            <p class="text-blue-400">SUPORTE / ESTRATEGISTA</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-300 mb-4">Mestre em suporte e estratégias de equipe, conhecido por suas jogadas visionárias e adaptabilidade.</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-blue-400 hover:text-blue-300"><i data-feather="instagram"></i></a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300"><i data-feather="twitter"></i></a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300"><i data-feather="twitch"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Player 3 -->
-                <div class="player-card bg-gray-900 rounded-xl overflow-hidden transition duration-500 ease-in-out" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAv-cx6w0kq7MOEQFOGXEFDPGkyBo5TTikYg&s" alt="Emanuel" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
-                        <div class="absolute bottom-0 left-0 p-6">
-                            <h3 class="text-2xl font-bold text-white">EMANUEL</h3>
-                            <p class="text-blue-400">FLANCO / CAÇADOR</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-300 mb-4">Especialista em movimentos agressivos e flanqueamento, com taxa de eliminação impressionante.</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-blue-400 hover:text-blue-300"><i data-feather="instagram"></i></a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300"><i data-feather="twitter"></i></a>
-                            <a href="#" class="text-blue-400 hover:text-blue-300"><i data-feather="twitch"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Seção de Camisas -->
+    <section id="jerseys" class="merch-section">
+        <div class="section-title">
+            <h2>Camisas do Time</h2>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="relative z-10 py-20 bg-gray-900 bg-opacity-90">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="lg:order-1" data-aos="fade-right">
-                    <img src="http://static.photos/gaming/1200x630/4" alt="Equipe CLHS Roalle" class="rounded-xl shadow-2xl">
-                </div>
-                <div class="lg:order-2" data-aos="fade-left">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">SOBRE A <span class="text-blue-400">CLHS ROALLE</span></h2>
-                    <div class="w-24 h-1 bg-blue-500 mb-8"></div>
-                    <p class="text-gray-300 mb-6">
-                        Fundada em 2022, a CLHS Roalle rapidamente se estabeleceu como uma das equipes mais promissoras no cenário competitivo mobile. Nossa filosofia combina trabalho duro, inovação estratégica e sinergia entre os membros.
-                    </p>
-                    <p class="text-gray-300 mb-6">
-                        Especializados em jogos como Free Fire, PUBG Mobile e Call of Duty Mobile, desenvolvemos estratégias únicas que nos diferenciam da concorrência.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <i data-feather="check-circle" class="text-blue-400"></i>
+        
+        <div class="jersey-container">
+            <div class="jersey-card">
+                <div class="jersey-display">
+                    <div class="jersey">
+                        <div class="jersey-front">
+                            <div class="jersey-logo">
+                                <i class="fas fa-horse-head"></i>
                             </div>
-                            <p class="ml-3 text-gray-300">Treinamentos diários com análise de desempenho individual e coletivo</p>
                         </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <i data-feather="check-circle" class="text-blue-400"></i>
-                            </div>
-                            <p class="ml-3 text-gray-300">Equipe de suporte com psicólogos esportivos e nutricionistas</p>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <i data-feather="check-circle" class="text-blue-400"></i>
-                            </div>
-                            <p class="ml-3 text-gray-300">Parcerias com marcas líderes no segmento gamer</p>
+                        <div class="jersey-back">
+                            <div class="jersey-text">M-BURRO</div>
                         </div>
                     </div>
+                </div>
+                <button class="flip-button" onclick="flipJersey(this)">Virar Camisa</button>
+                
+                <div class="jersey-details">
+                    <h3>Camisa Oficial Mata-Burro</h3>
+                    <p>Camisa de alta qualidade com design exclusivo da equipe Mata-Burro. Perfeita para torcer e representar seu time favorito de e-sports.</p>
+                    <p><strong>Material:</strong> Poliéster de alta performance</p>
+                    <p><strong>Cores:</strong> Preto com detalhes em dourado</p>
+                    <p><strong>Disponível nos tamanhos:</strong> P, M, G, GG</p>
+                    <div class="jersey-price">R$ 149,90</div>
+                    <a href="#" class="buy-button">Comprar Agora</a>
+                </div>
+            </div>
+            
+            <div class="jersey-card">
+                <div class="jersey-display">
+                    <div class="jersey">
+                        <div class="jersey-front">
+                            <div class="jersey-logo">
+                                <i class="fas fa-horse-head"></i>
+                            </div>
+                        </div>
+                        <div class="jersey-back">
+                            <div class="jersey-text">M-BURRO</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="flip-button" onclick="flipJersey(this)">Virar Camisa</button>
+                
+                <div class="jersey-details">
+                    <h3>Edição Limitada Ouro</h3>
+                    <p>Camisa especial com detalhes premium em dourado. Edição limitada para os fãs mais dedicados do Mata-Burro.</p>
+                    <p><strong>Material:</strong> Algodão premium</p>
+                    <p><strong>Cores:</strong> Preto com detalhes em dourado brilhante</p>
+                    <p><strong>Disponível nos tamanhos:</strong> M, G, GG</p>
+                    <div class="jersey-price">R$ 199,90</div>
+                    <a href="#" class="buy-button">Comprar Agora</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Achievements Section -->
-    <section id="achievements" class="relative z-10 py-20 bg-black bg-opacity-90">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">NOSSAS <span class="text-blue-400">CONQUISTAS</span></h2>
-                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
+    <!-- Jogadores -->
+    <section id="players">
+        <div class="section-title">
+            <h2>Nossos Jogadores</h2>
+        </div>
+        <div class="players-slider">
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="https://images.unsplash.com/photo-1621535858012-4e9d5e355a2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Thiago 'Crow' Silva">
+                </div>
+                <div class="player-info">
+                    <h3>Thiago "Crow" Silva</h3>
+                    <p>Capitão e Atirador</p>
+                    <span class="player-role">Free Fire / PUBG Mobile</span>
+                </div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-900 rounded-xl p-8 text-center" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="text-blue-400 mb-4">
-                        <i data-feather="award" class="w-12 h-12 mx-auto"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">1º LUGAR</h3>
-                    <p class="text-gray-400">CBLOL Mobile 2023</p>
-                    <p class="text-gray-300 mt-4">Campeões invictos com 92% de taxa de vitória</p>
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="https://images.unsplash.com/photo-1628890923665-afc331b5b85f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Amanda 'Storm' Santos">
                 </div>
-
-                <div class="bg-gray-900 rounded-xl p-8 text-center" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="text-blue-400 mb-4">
-                        <i data-feather="star" class="w-12 h-12 mx-auto"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">MVP</h3>
-                    <p class="text-gray-400">Free Fire World Series 2023</p>
-                    <p class="text-gray-300 mt-4">Saulo eleito melhor jogador do torneio</p>
+                <div class="player-info">
+                    <h3>Amanda "Storm" Santos</h3>
+                    <p>Estratégica e Suporte</p>
+                    <span class="player-role">Mobile Legends</span>
                 </div>
-
-                <div class="bg-gray-900 rounded-xl p-8 text-center" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="text-blue-400 mb-4">
-                        <i data-feather="trending-up" class="w-12 h-12 mx-auto"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">TOP 3</h3>
-                    <p class="text-gray-400">PUBG Mobile Global Championship</p>
-                    <p class="text-gray-300 mt-4">Melhor equipe brasileira no torneio</p>
+            </div>
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="https://images.unsplash.com/photo-1621535858012-4e9d5e355a2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Rafael 'Hunter' Costa">
+                </div>
+                <div class="player-info">
+                    <h3>Rafael "Hunter" Costa</h3>
+                    <p>Atirador e Iniciador</p>
+                    <span class="player-role">COD Mobile / PUBG</span>
+                </div>
+            </div>
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="https://images.unsplash.com/photo-1628890923665-afc331b5b85f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Juliana 'Rogue' Almeida">
+                </div>
+                <div class="player-info">
+                    <h3>Juliana "Rogue" Almeida</h3>
+                    <p>Suporte e Estratégica</p>
+                    <span class="player-role">Clash Royale</span>
+                </div>
+            </div>
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="https://images.unsplash.com/photo-1621535858012-4e9d5e355a2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Carlos 'Hawk' Mendes">
+                </div>
+                <div class="player-info">
+                    <h3>Carlos "Hawk" Mendes</h3>
+                    <p>Atirador e Sniper</p>
+                    <span class="player-role">Free Fire / COD Mobile</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="relative z-10 py-20 bg-gray-900 bg-opacity-90">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">FALE <span class="text-blue-400">CONOSCO</span></h2>
-                <div class="w-24 h-1 bg-blue-500 mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="space-y-8" data-aos="fade-right">
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-4">PATROCÍNIOS E PARCERIAS</h3>
-                        <p class="text-gray-300">Interessado em patrocinar nossa equipe ou estabelecer uma parceria comercial? Entre em contato com nosso departamento comercial.</p>
-                        <p class="text-blue-400 mt-2">comercial@clhsroalle.com</p>
-                    </div>
-
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-4">IMPRENSA</h3>
-                        <p class="text-gray-300">Jornalistas e criadores de conteúdo podem solicitar entrevistas ou informações através do nosso departamento de comunicação.</p>
-                        <p class="text-blue-400 mt-2">imprensa@clhsroalle.com</p>
-                    </div>
-
-                    <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
-                            <i data-feather="instagram" class="w-6 h-6"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
-                            <i data-feather="twitter" class="w-6 h-6"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
-                            <i data-feather="youtube" class="w-6 h-6"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
-                            <i data-feather="twitch" class="w-6 h-6"></i>
-                        </a>
-                    </div>
+    <!-- Notícias -->
+    <section id="news" class="dark-section">
+        <div class="section-title">
+            <h2>Últimas Notícias</h2>
+        </div>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mata-Burro campeão mundial">
                 </div>
-
-                <div data-aos="fade-left">
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nome</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white placeholder-gray-500 transition duration-300">
-                        </div>
-
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white placeholder-gray-500 transition duration-300">
-                        </div>
-
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Assunto</label>
-                            <select id="subject" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white placeholder-gray-500 transition duration-300">
-                                <option>Selecione um assunto</option>
-                                <option>Patrocínios</option>
-                                <option>Imprensa</option>
-                                <option>Dúvidas</option>
-                                <option>Outros</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Mensagem</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white placeholder-gray-500 transition duration-300"></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-                            ENVIAR MENSAGEM
-                        </button>
-                    </form>
+                <div class="news-content">
+                    <span class="news-date">12 de Agosto, 2023</span>
+                    <h3>Mata-Burro é campeão mundial de Free Fire</h3>
+                    <p>Nossa equipe conquistou o título mundial de Free Fire após uma campanha incrível na final contra a equipe tailandesa...</p>
+                    <a href="#" class="read-more">Leia mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nova sede da equipe">
+                </div>
+                <div class="news-content">
+                    <span class="news-date">5 de Agosto, 2023</span>
+                    <h3>Mata-Burro anuncia nova sede em São Paulo</h3>
+                    <p>A equipe acaba de anunciar a abertura de sua nova sede de treinamentos em São Paulo, com estrutura de ponta para...</p>
+                    <a href="#" class="read-more">Leia mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Patrocínio da marca">
+                </div>
+                <div class="news-content">
+                    <span class="news-date">28 de Julho, 2023</span>
+                    <h3>Mata-Burro anuncia novo patrocínio com marca global</h3>
+                    <p>Uma das maiores marcas de tecnologia do mundo acaba de fechar patrocínio exclusivo com a equipe Mata-Burro...</p>
+                    <a href="#" class="read-more">Leia mais <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="relative z-10 bg-black py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <span class="text-2xl font-bold text-white glow-text">CLHS<span class="text-blue-400">ROALLE</span></span>
-                </div>
-                <div class="flex flex-col items-center md:items-end">
-                    <p class="text-gray-400 text-sm mb-4">© 2023 CLHS Roalle. Todos os direitos reservados.</p>
-                    <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
-                            <i data-feather="instagram" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
-                            <i data-feather="twitter" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
-                            <i data-feather="youtube" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400 transition duration-300">
-                            <i data-feather="twitch" class="w-5 h-5"></i>
-                        </a>
-                    </div>
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Sobre Nós</h3>
+                <p>Mata-Burro E-Sports é uma equipe profissional de jogos mobile, focada em competições de alto nível e no desenvolvimento de talentos do cenário brasileiro.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
                 </div>
             </div>
+            <div class="footer-column">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Início</a></li>
+                    <li><a href="#history"><i class="fas fa-chevron-right"></i> História</a></li>
+                    <li><a href="#players"><i class="fas fa-chevron-right"></i> Jogadores</a></li>
+                    <li><a href="#jerseys"><i class="fas fa-chevron-right"></i> Camisas</a></li>
+                    <li><a href="#news"><i class="fas fa-chevron-right"></i> Notícias</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contato</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-envelope"></i> contato@mataburroesports.com</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> +55 (11) 99999-9999</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Mata-Burro E-Sports. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Initialize Vanta.js
-        VANTA.GLOBE({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x00bfff,
-            backgroundColor: 0x0,
-            size: 0.8
-        });
-
-        // Initialize AOS and Feather Icons
+        // Efeito de digitação no título
         document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
-                once: true
-            });
-            feather.replace();
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+            const heroTitle = document.querySelector('.hero-content h1');
+            const originalText = heroTitle.textContent;
+            heroTitle.textContent = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < originalText.length) {
+                    heroTitle.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            };
+            
+            typeWriter();
+            
+            // Efeito de rolagem suave
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
+            
+            // Animação de aparição dos elementos
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.history-text, .game-card, .player-card, .news-card, .jersey-card').forEach(el => {
+                observer.observe(el);
+            });
         });
+        
+        // Função para virar a camisa
+        function flipJersey(button) {
+            const jersey = button.previousElementSibling.querySelector('.jersey');
+            jersey.style.transform = jersey.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+            button.textContent = jersey.style.transform === 'rotateY(180deg)' ? 'Voltar Camisa' : 'Virar Camisa';
+        }
     </script>
 </body>
 
