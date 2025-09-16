@@ -153,7 +153,7 @@ header {
 /* Banner Principal */
 .hero-banner {
     height: 100vh;
-    background: linear-gradient(rgba(92, 61, 12, 0.7), rgba(26, 26, 26, 0.9)), url('https://i.pinimg.com/736x/c4/6d/57/c46d577a5c12649594fd73130b86510d.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(92, 61, 12, 0.7), rgba(26, 26, 26, 0.9)), url('https://img.goodfon.com/original/2560x1440/1/f5/firewatch-igra-minimalizm.jpg') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -889,4 +889,5 @@ footer::before {
     .jersey-text {
         font-size: 22px;
     }
+
 }
