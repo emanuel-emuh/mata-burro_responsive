@@ -9,14 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold-primary: #D4AF37;
-            --gold-secondary: #FFD700;
-            --gold-light: #F9E076;
-            --gold-dark: #B8860B;
+            --orange-primary: #FF8C00;
+            --orange-secondary: #FFA500;
+            --orange-light: #FFB74D;
+            --orange-dark: #E65100;
             --dark-bg: #1A1A1A;
             --dark-section: #222222;
             --text-light: #FFFFFF;
-            --text-gold: #D4AF37;
+            --text-orange: #FF8C00;
             --brown-dark: #5C3D0C;
             --mobile-blue: #1E90FF;
             --mobile-purple: #9370DB;
@@ -52,7 +52,7 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
-            border-bottom: 2px solid var(--gold-primary);
+            border-bottom: 2px solid var(--orange-primary);
             backdrop-filter: blur(10px);
         }
         
@@ -70,15 +70,15 @@
         
         .logo-icon {
             font-size: 2.5rem;
-            color: var(--gold-primary);
+            color: var(--orange-primary);
             margin-right: 10px;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
         }
         
         .logo-text {
             font-size: 2rem;
             font-weight: 700;
-            background: linear-gradient(to right, var(--gold-primary), var(--gold-light));
+            background: linear-gradient(to right, var(--orange-primary), var(--orange-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
@@ -93,7 +93,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: linear-gradient(to right, var(--gold-primary), var(--gold-light));
+            background: linear-gradient(to right, var(--orange-primary), var(--orange-light));
             border-radius: 2px;
         }
         
@@ -118,7 +118,7 @@
         }
         
         .nav-links a:hover {
-            color: var(--gold-primary);
+            color: var(--orange-primary);
         }
         
         .nav-links a::after {
@@ -128,7 +128,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--gold-primary);
+            background: var(--orange-primary);
             transition: width 0.3s;
         }
         
@@ -155,8 +155,8 @@
         }
         
         .social-icons a:hover {
-            color: var(--gold-primary);
-            background: rgba(212, 175, 55, 0.2);
+            color: var(--orange-primary);
+            background: rgba(255, 140, 0, 0.2);
             transform: translateY(-3px);
         }
         
@@ -194,19 +194,19 @@
             font-size: 4.5rem;
             margin-bottom: 20px;
             text-transform: uppercase;
-            background: linear-gradient(to right, var(--gold-primary), var(--gold-light), var(--gold-primary));
+            background: linear-gradient(to right, var(--orange-primary), var(--orange-light), var(--orange-primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            text-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
             animation: glow 2s infinite alternate;
         }
         
         @keyframes glow {
             from {
-                text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+                text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
             }
             to {
-                text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.6);
+                text-shadow: 0 0 20px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.6);
             }
         }
         
@@ -219,7 +219,7 @@
         
         .cta-button {
             display: inline-block;
-            background: linear-gradient(to right, var(--gold-primary), var(--gold-dark));
+            background: linear-gradient(to right, var(--orange-primary), var(--orange-dark));
             color: var(--dark-bg);
             padding: 15px 35px;
             border-radius: 30px;
@@ -231,12 +231,12 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
         }
         
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 8px 20px rgba(255, 140, 0, 0.6);
         }
         
         .cta-button:active {
@@ -269,7 +269,7 @@
         .section-title h2 {
             font-size: 2.8rem;
             text-transform: uppercase;
-            background: linear-gradient(to right, var(--gold-primary), var(--gold-light));
+            background: linear-gradient(to right, var(--orange-primary), var(--orange-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
@@ -284,7 +284,7 @@
             top: 50%;
             width: 50px;
             height: 3px;
-            background: linear-gradient(to right, transparent, var(--gold-primary));
+            background: linear-gradient(to right, transparent, var(--orange-primary));
         }
         
         .section-title h2::before {
@@ -293,7 +293,7 @@
         
         .section-title h2::after {
             right: -60px;
-            background: linear-gradient(to left, transparent, var(--gold-primary));
+            background: linear-gradient(to left, transparent, var(--orange-primary));
         }
         
         section {
@@ -312,7 +312,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+            background: linear-gradient(to right, transparent, var(--orange-primary), transparent);
         }
         
         /* História */
@@ -328,7 +328,7 @@
             background: linear-gradient(to bottom, rgba(34, 34, 34, 0.9), rgba(26, 26, 26, 0.9));
             padding: 40px;
             border-radius: 15px;
-            border-left: 5px solid var(--gold-primary);
+            border-left: 5px solid var(--orange-primary);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
@@ -343,7 +343,7 @@
         }
         
         .highlight {
-            color: var(--gold-primary);
+            color: var(--orange-primary);
             font-weight: 600;
         }
         
@@ -363,19 +363,19 @@
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(255, 140, 0, 0.2);
         }
         
         .game-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-            border-color: var(--gold-primary);
+            border-color: var(--orange-primary);
         }
         
         .game-icon {
             font-size: 3rem;
             margin-bottom: 15px;
-            color: var(--gold-primary);
+            color: var(--orange-primary);
         }
         
         .game-card h3 {
@@ -410,13 +410,13 @@
             padding: 30px;
             width: 320px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(255, 140, 0, 0.3);
             transition: all 0.3s;
         }
         
         .jersey-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 15px 35px rgba(255, 140, 0, 0.2);
         }
         
         .jersey-display {
@@ -433,7 +433,7 @@
             width: 220px;
             height: 280px;
             background-color: #000;
-            border: 4px solid var(--gold-primary);
+            border: 4px solid var(--orange-primary);
             border-radius: 10px;
             position: relative;
             overflow: hidden;
@@ -458,19 +458,19 @@
         
         .jersey-logo {
             font-size: 80px;
-            color: var(--gold-primary);
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            color: var(--orange-primary);
+            text-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
         }
         
         .jersey-text {
             font-family: 'Oxanium', cursive;
             font-weight: 800;
             font-size: 28px;
-            color: var(--gold-primary);
+            color: var(--orange-primary);
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 20px;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+            text-shadow: 0 0 10px rgba(255, 140, 0, 0.4);
         }
         
         .jersey-details {
@@ -478,7 +478,7 @@
         }
         
         .jersey-details h3 {
-            color: var(--gold-primary);
+            color: var(--orange-primary);
             font-size: 22px;
             margin-bottom: 15px;
         }
@@ -491,14 +491,14 @@
         
         .jersey-price {
             font-size: 24px;
-            color: var(--gold-light);
+            color: var(--orange-light);
             font-weight: 700;
             margin: 15px 0;
         }
         
         .buy-button {
             display: inline-block;
-            background: linear-gradient(to right, var(--gold-primary), var(--gold-dark));
+            background: linear-gradient(to right, var(--orange-primary), var(--orange-dark));
             color: #000;
             padding: 12px 30px;
             border-radius: 30px;
@@ -508,18 +508,18 @@
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
         }
         
         .buy-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 8px 20px rgba(255, 140, 0, 0.6);
             color: #000;
         }
         
         .flip-button {
-            background: rgba(212, 175, 55, 0.2);
-            color: var(--gold-primary);
+            background: rgba(255, 140, 0, 0.2);
+            color: var(--orange-primary);
             border: none;
             padding: 8px 15px;
             border-radius: 5px;
@@ -529,7 +529,7 @@
         }
         
         .flip-button:hover {
-            background: rgba(212, 175, 55, 0.3);
+            background: rgba(255, 140, 0, 0.3);
         }
         
         /* Notícias */
@@ -544,7 +544,7 @@
             border-radius: 10px;
             overflow: hidden;
             transition: all 0.3s;
-            border-bottom: 3px solid var(--gold-primary);
+            border-bottom: 3px solid var(--orange-primary);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             position: relative;
         }
@@ -587,7 +587,7 @@
         
         .news-content h3 {
             margin-bottom: 15px;
-            color: var(--gold-secondary);
+            color: var(--orange-secondary);
             font-size: 1.4rem;
         }
         
@@ -598,14 +598,14 @@
         }
         
         .news-date {
-            color: var(--gold-primary);
+            color: var(--orange-primary);
             font-size: 0.9rem;
             margin-bottom: 10px;
             display: block;
         }
         
         .read-more {
-            color: var(--gold-primary);
+            color: var(--orange-primary);
             text-decoration: none;
             font-weight: 600;
             display: inline-flex;
@@ -619,7 +619,7 @@
         }
         
         .read-more:hover {
-            color: var(--gold-light);
+            color: var(--orange-light);
         }
         
         .read-more:hover i {
@@ -632,7 +632,7 @@
             overflow-x: auto;
             padding: 30px 10px;
             scrollbar-width: thin;
-            scrollbar-color: var(--gold-primary) var(--dark-section);
+            scrollbar-color: var(--orange-primary) var(--dark-section);
             scroll-behavior: smooth;
         }
         
@@ -641,7 +641,7 @@
         }
         
         .players-slider::-webkit-scrollbar-thumb {
-            background: linear-gradient(to right, var(--gold-primary), var(--gold-dark));
+            background: linear-gradient(to right, var(--orange-primary), var(--orange-dark));
             border-radius: 4px;
         }
         
@@ -653,7 +653,7 @@
             border-radius: 15px;
             overflow: hidden;
             text-align: center;
-            border-left: 4px solid var(--gold-primary);
+            border-left: 4px solid var(--orange-primary);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s;
         }
@@ -695,7 +695,7 @@
         }
         
         .player-info h3 {
-            color: var(--gold-primary);
+            color: var(--orange-primary);
             margin-bottom: 8px;
             font-size: 1.4rem;
         }
@@ -708,8 +708,8 @@
         
         .player-role {
             display: inline-block;
-            background: rgba(212, 175, 55, 0.2);
-            color: var(--gold-light);
+            background: rgba(255, 140, 0, 0.2);
+            color: var(--orange-light);
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -720,7 +720,7 @@
             background: linear-gradient(to top, #151515, var(--dark-bg));
             padding: 60px 5% 30px;
             position: relative;
-            border-top: 2px solid var(--gold-primary);
+            border-top: 2px solid var(--orange-primary);
         }
         
         footer::before {
@@ -730,7 +730,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+            background: linear-gradient(to right, transparent, var(--orange-primary), transparent);
         }
         
         .footer-content {
@@ -741,7 +741,7 @@
         }
         
         .footer-column h3 {
-            color: var(--gold-primary);
+            color: var(--orange-primary);
             margin-bottom: 20px;
             font-size: 1.3rem;
             position: relative;
@@ -755,7 +755,7 @@
             left: 0;
             width: 40px;
             height: 2px;
-            background: var(--gold-primary);
+            background: var(--orange-primary);
         }
         
         .footer-column p {
@@ -781,7 +781,7 @@
         }
         
         .footer-links a:hover {
-            color: var(--gold-primary);
+            color: var(--orange-primary);
         }
         
         .footer-links a i {
@@ -808,7 +808,7 @@
         }
         
         .footer-social a:hover {
-            background: var(--gold-primary);
+            background: var(--orange-primary);
             color: var(--dark-bg);
             transform: translateY(-3px);
         }
@@ -1011,7 +1011,7 @@
                     <h3>Camisa Oficial Mata-Burro</h3>
                     <p>Camisa de alta qualidade com design exclusivo da equipe Mata-Burro. Perfeita para torcer e representar seu time favorito de e-sports.</p>
                     <p><strong>Material:</strong> Poliéster de alta performance</p>
-                    <p><strong>Cores:</strong> Preto com detalhes em dourado</p>
+                    <p><strong>Cores:</strong> Preto com detalhes em laranja</p>
                     <p><strong>Disponível nos tamanhos:</strong> P, M, G, GG</p>
                     <div class="jersey-price">R$ 149,90</div>
                     <a href="#" class="buy-button">Comprar Agora</a>
@@ -1035,9 +1035,9 @@
                 
                 <div class="jersey-details">
                     <h3>Edição Limitada Ouro</h3>
-                    <p>Camisa especial com detalhes premium em dourado. Edição limitada para os fãs mais dedicados do Mata-Burro.</p>
+                    <p>Camisa especial com detalhes premium em laranja. Edição limitada para os fãs mais dedicados do Mata-Burro.</p>
                     <p><strong>Material:</strong> Algodão premium</p>
-                    <p><strong>Cores:</strong> Preto com detalhes em dourado brilhante</p>
+                    <p><strong>Cores:</strong> Preto com detalhes em laranja brilhante</p>
                     <p><strong>Disponível nos tamanhos:</strong> M, G, GG</p>
                     <div class="jersey-price">R$ 199,90</div>
                     <a href="#" class="buy-button">Comprar Agora</a>
@@ -1069,37 +1069,37 @@
                 <div class="player-info">
                     <h3>Amanda "Storm" Santos</h3>
                     <p>Estratégica e Suporte</p>
-                    <span class="player-role">Mobile Legends</span>
+                    <span class="player-role">Mobile Legends / COD Mobile</span>
                 </div>
             </div>
             <div class="player-card">
                 <div class="player-image">
-                    <img src="https://images.unsplash.com/photo-1621535858012-4e9d5e355a2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Rafael 'Hunter' Costa">
+                    <img src="https://images.unsplash.com/photo-1621535858012-4e9d5e355a2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ricardo 'Hawk' Oliveira">
                 </div>
                 <div class="player-info">
-                    <h3>Rafael "Hunter" Costa</h3>
+                    <h3>Ricardo "Hawk" Oliveira</h3>
                     <p>Atirador e Iniciador</p>
-                    <span class="player-role">COD Mobile / PUBG</span>
+                    <span class="player-role">Free Fire / PUBG Mobile</span>
                 </div>
             </div>
             <div class="player-card">
                 <div class="player-image">
-                    <img src="https://images.unsplash.com/photo-1628890923665-afc331b5b85f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Juliana 'Rogue' Almeida">
+                    <img src="https://images.unsplash.com/photo-1628890923665-afc331b5b85f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Juliana 'Raven' Costa">
                 </div>
                 <div class="player-info">
-                    <h3>Juliana "Rogue" Almeida</h3>
-                    <p>Suporte e Estratégica</p>
-                    <span class="player-role">Clash Royale</span>
+                    <h3>Juliana "Raven" Costa</h3>
+                    <p>Suporte e Sniper</p>
+                    <span class="player-role">COD Mobile / PUBG Mobile</span>
                 </div>
             </div>
             <div class="player-card">
                 <div class="player-image">
-                    <img src="https://images.unsplash.com/photo-1621535858012-4e9d5e355a2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Carlos 'Hawk' Mendes">
+                    <img src="https://images.unsplash.com/photo-1621535858012-4e9d5e355a2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Carlos 'Bull' Mendes">
                 </div>
                 <div class="player-info">
-                    <h3>Carlos "Hawk" Mendes</h3>
-                    <p>Atirador e Sniper</p>
-                    <span class="player-role">Free Fire / COD Mobile</span>
+                    <h3>Carlos "Bull" Mendes</h3>
+                    <p>Tanque e Líder</p>
+                    <span class="player-role">Mobile Legends / Clash Royale</span>
                 </div>
             </div>
         </div>
@@ -1113,35 +1113,35 @@
         <div class="news-grid">
             <div class="news-card">
                 <div class="news-image">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mata-Burro campeão mundial">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mata-Burro vence campeonato">
                 </div>
                 <div class="news-content">
-                    <span class="news-date">12 de Agosto, 2023</span>
-                    <h3>Mata-Burro é campeão mundial de Free Fire</h3>
-                    <p>Nossa equipe conquistou o título mundial de Free Fire após uma campanha incrível na final contra a equipe tailandesa...</p>
-                    <a href="#" class="read-more">Leia mais <i class="fas fa-arrow-right"></i></a>
+                    <span class="news-date">15 de Novembro, 2023</span>
+                    <h3>Mata-Burro é campeão do Mobile Masters 2023</h3>
+                    <p>Nossa equipe conquistou o título mundial após uma virada histórica contra a equipe chinesa Dragon Force.</p>
+                    <a href="#" class="read-more">Ler mais <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="news-card">
                 <div class="news-image">
-                    <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nova sede da equipe">
+                    <img src="https://images.unsplash.com/photo-1599002922299-90c4d7865e3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nova camisa oficial">
                 </div>
                 <div class="news-content">
-                    <span class="news-date">5 de Agosto, 2023</span>
-                    <h3>Mata-Burro anuncia nova sede em São Paulo</h3>
-                    <p>A equipe acaba de anunciar a abertura de sua nova sede de treinamentos em São Paulo, com estrutura de ponta para...</p>
-                    <a href="#" class="read-more">Leia mais <i class="fas fa-arrow-right"></i></a>
+                    <span class="news-date">2 de Novembro, 2023</span>
+                    <h3>Lançamento da nova camisa oficial da temporada</h3>
+                    <p>Já está disponível em nossa loja online a nova camisa oficial com design exclusivo e tecnologia avançada.</p>
+                    <a href="#" class="read-more">Ler mais <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="news-card">
                 <div class="news-image">
-                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Patrocínio da marca">
+                    <img src="https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Parceria com nova marca">
                 </div>
                 <div class="news-content">
-                    <span class="news-date">28 de Julho, 2023</span>
-                    <h3>Mata-Burro anuncia novo patrocínio com marca global</h3>
-                    <p>Uma das maiores marcas de tecnologia do mundo acaba de fechar patrocínio exclusivo com a equipe Mata-Burro...</p>
-                    <a href="#" class="read-more">Leia mais <i class="fas fa-arrow-right"></i></a>
+                    <span class="news-date">28 de Outubro, 2023</span>
+                    <h3>Mata-Burro anuncia parceria com gigante de tecnologia</h3>
+                    <p>A partir de 2024, nossa equipe contará com equipamentos de última geração fornecidos pela TechGamer.</p>
+                    <a href="#" class="read-more">Ler mais <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -1152,7 +1152,7 @@
         <div class="footer-content">
             <div class="footer-column">
                 <h3>Sobre Nós</h3>
-                <p>Mata-Burro E-Sports é uma equipe profissional de jogos mobile, focada em competições de alto nível e no desenvolvimento de talentos do cenário brasileiro.</p>
+                <p>O Mata-Burro E-Sports é uma equipe profissional de jogos mobile, competindo nos principais campeonatos nacionais e internacionais.</p>
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1173,79 +1173,39 @@
             <div class="footer-column">
                 <h3>Contato</h3>
                 <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-envelope"></i> contato@mataburroesports.com</a></li>
-                    <li><a href="#"><i class="fas fa-phone"></i> +55 (11) 99999-9999</a></li>
-                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</li>
+                    <li><i class="fas fa-envelope"></i> contato@mataburroesports.com</li>
+                    <li><i class="fas fa-phone"></i> +55 (11) 99999-9999</li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2023 Mata-Burro E-Sports. Todos os direitos reservados.</p>
+            &copy; 2023 Mata-Burro E-Sports. Todos os direitos reservados.
         </div>
     </footer>
 
     <script>
-        // Efeito de digitação no título
-        document.addEventListener('DOMContentLoaded', function() {
-            const heroTitle = document.querySelector('.hero-content h1');
-            const originalText = heroTitle.textContent;
-            heroTitle.textContent = '';
-            
-            let i = 0;
-            const typeWriter = () => {
-                if (i < originalText.length) {
-                    heroTitle.textContent += originalText.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 100);
-                }
-            };
-            
-            typeWriter();
-            
-            // Efeito de rolagem suave
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Animação de aparição dos elementos
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                    }
-                });
-            }, observerOptions);
-            
-            document.querySelectorAll('.history-text, .game-card, .player-card, .news-card, .jersey-card').forEach(el => {
-                observer.observe(el);
-            });
-        });
-        
         // Função para virar a camisa
         function flipJersey(button) {
             const jersey = button.previousElementSibling.querySelector('.jersey');
             jersey.style.transform = jersey.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
-            button.textContent = jersey.style.transform === 'rotateY(180deg)' ? 'Voltar Camisa' : 'Virar Camisa';
         }
+        
+        // Efeito de digitação no título
+        document.addEventListener('DOMContentLoaded', function() {
+            const titles = document.querySelectorAll('.section-title h2');
+            
+            titles.forEach(title => {
+                const text = title.textContent;
+                title.textContent = '';
+                
+                for (let i = 0; i < text.length; i++) {
+                    setTimeout(() => {
+                        title.textContent += text[i];
+                    }, 100 + i * 50);
+                }
+            });
+        });
     </script>
 </body>
 
