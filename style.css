@@ -35,7 +35,9 @@ h4,
     font-weight: 700;
 }
 
+
 /* Header e Navegação */
+
 header {
     background: linear-gradient(to bottom, rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.85));
     padding: 15px 5%;
@@ -58,12 +60,29 @@ header {
     position: relative;
 }
 
+
+/* === ESTILOS ATUALIZADOS PARA O LOGO === */
+
 .logo-icon {
-    font-size: 2.5rem;
-    color: var(--orange-primary);
-    margin-right: 10px;
-    text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.logo-icon img {
+    height: 100px;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.logo:hover .logo-icon img {
+    transform: rotate(360deg);
+    box-shadow: 0 0 20px var(--orange-primary);
+}
+
+
+/* === FIM DOS ESTILOS DO LOGO === */
 
 .logo-text {
     font-size: 2rem;
@@ -150,7 +169,9 @@ header {
     transform: translateY(-3px);
 }
 
+
 /* Banner Principal */
+
 .hero-banner {
     height: 100vh;
     background: linear-gradient(rgba(92, 61, 12, 0.7), rgba(26, 26, 26, 0.9)), url('https://img.goodfon.com/original/2560x1440/1/f5/firewatch-igra-minimalizm.jpg') no-repeat center center/cover;
@@ -249,7 +270,9 @@ header {
     left: 100%;
 }
 
+
 /* Seções */
+
 .section-title {
     text-align: center;
     margin: 80px 0 50px;
@@ -305,7 +328,9 @@ section {
     background: linear-gradient(to right, transparent, var(--orange-primary), transparent);
 }
 
+
 /* História */
+
 .history-content {
     max-width: 1000px;
     margin: 0 auto;
@@ -379,7 +404,9 @@ section {
     font-size: 0.9rem;
 }
 
+
 /* Seção de Camisas */
+
 .merch-section {
     background: linear-gradient(to bottom, var(--dark-section), #2a2a2a);
     padding: 80px 5%;
@@ -422,14 +449,9 @@ section {
 .jersey {
     width: 220px;
     height: 280px;
-    background-color: #000;
-    border: 4px solid var(--orange-primary);
-    border-radius: 10px;
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    transition: all 0.5s;
-    transform-style: preserve-3d; /* Adicionado para o efeito 3D */
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
 .jersey-front,
@@ -437,11 +459,24 @@ section {
     position: absolute;
     width: 100%;
     height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Correção para navegadores WebKit */
     backface-visibility: hidden;
+    /* Correção para o giro */
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    border: 4px solid var(--orange-primary);
+    border-radius: 10px;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.jersey-front img,
+.jersey-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .jersey-back {
@@ -524,7 +559,9 @@ section {
     background: rgba(255, 140, 0, 0.3);
 }
 
+
 /* Notícias */
+
 .news-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
@@ -618,7 +655,9 @@ section {
     transform: translateX(5px);
 }
 
+
 /* Jogadores */
+
 .players-slider {
     display: flex;
     overflow-x: auto;
@@ -707,7 +746,9 @@ section {
     font-size: 0.9rem;
 }
 
+
 /* Footer */
+
 footer {
     background: linear-gradient(to top, #151515, var(--dark-bg));
     padding: 60px 5% 30px;
@@ -813,14 +854,16 @@ footer::before {
     font-size: 0.9rem;
 }
 
+
 /* Responsividade */
+
 @media (max-width: 992px) {
     .hero-content h1 {
         font-size: 3.5rem;
     }
-
     .nav-links {
-        display: none; /* Simplificado para o exemplo, idealmente seria um menu hamburguer */
+        display: none;
+        /* Simplificado para o exemplo, idealmente seria um menu hamburguer */
     }
 }
 
@@ -828,28 +871,22 @@ footer::before {
     .hero-content h1 {
         font-size: 2.8rem;
     }
-
     .hero-content p {
         font-size: 1.1rem;
     }
-
     .section-title h2 {
         font-size: 2.2rem;
     }
-
     .section-title h2::before,
     .section-title h2::after {
         width: 30px;
     }
-
     .section-title h2::before {
         left: -40px;
     }
-
     .section-title h2::after {
         right: -40px;
     }
-
     .jersey-container {
         gap: 30px;
     }
@@ -859,35 +896,27 @@ footer::before {
     .hero-content h1 {
         font-size: 2.2rem;
     }
-
     .logo-text {
         font-size: 1.5rem;
     }
-
     .section-title h2 {
         font-size: 1.8rem;
     }
-
     .section-title h2::before,
     .section-title h2::after {
         display: none;
     }
-
     .history-text {
         padding: 25px;
     }
-
     .jersey {
         width: 180px;
         height: 230px;
     }
-
     .jersey-logo {
         font-size: 60px;
     }
-
     .jersey-text {
         font-size: 22px;
     }
-
 }
